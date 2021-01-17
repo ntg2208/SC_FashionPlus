@@ -2,6 +2,7 @@
 ./checkpoints
 ./checkpoints_bk
 ./checkpoints_pretrained
+<<<<<<< HEAD
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -132,3 +133,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+=======
+>>>>>>> e4e2f7a... initial commit
