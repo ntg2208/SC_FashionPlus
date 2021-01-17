@@ -1,0 +1,94 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PostProcess",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/postprocess/process_face.py",
+            "args": [ "--fname", "001_18.jpg", "--orig_img_dir", "/home/giang.nguyen/FashionStyle/FashionPlus/datasets/images/",
+                "--orig_mask_dir", "/home/giang.nguyen/FashionStyle/FashionPlus/datasets/labels/", "--gen_img_dir", "/home/giang.nguyen/FashionStyle/FashionPlus/classification/data_dict/shape_and_feature/results/", 
+                "--gen_mask_dir", "/home/giang.nguyen/FashionStyle/FashionPlus/classification/data_dict/shape_and_feature/results", 
+                "--bbox_pickle_file", "/home/giang.nguyen/FashionStyle/FashionPlus/generation/datasets/demo/test.p",
+                "--result_dir", "/home/giang.nguyen/FashionStyle/FashionPlus/classification/data_dict/shape_and_feature/results/demo/images"
+            ],
+            "console": "integratedTerminal" 
+        },
+        {
+            "name": "UpdateDemo",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/classification/data_dict/shape_and_feature/update_demo.py",
+            "args": [ "--update_fname", "4.jpg", 
+                "--update_type", "shape_and_texture",
+                "--max_iter_hr", "10", "--swapped_partID", "0",
+                "--lr", "0.25", "--min_thresholdloss", "0.00009",
+                "--model_type", "pix2pixHD", "--texture_feat_num", "8",
+                "--texture_feat_file", "/home/giang.nguyen/FashionStyle/FashionPlus/generation/results/Lab/demo/test_features.p",
+                "--shape_feat_file", "/home/giang.nguyen/FashionStyle/FashionPlus/separate_vae/results/Lab/demo/test_shape_codes.p", 
+                "--dataset_dir", "/home/giang.nguyen/FashionStyle/FashionPlus/datasets",
+                "--param_m", "3",
+                "--param_k", "256", 
+                "--load_pretrain_clf", "/home/giang.nguyen/FashionStyle/FashionPlus/checkpoints/m3k256/", 
+                "--load_pretrain_texture_gen", "/home/giang.nguyen/FashionStyle/FashionPlus/checkpoints/", 
+                "--load_pretrain_shape_gen", "/home/giang.nguyen/FashionStyle/FashionPlus/checkpoints/", 
+                "--network_arch", "mlp", "--in_dim", "64", 
+                "--clf_epoch", "120", "--lambda_smooth", "0", 
+                "--display_freq", "1", "--classname", "humanparsing", "--color_mode", "Lab",
+                "--save_dir", "/home/giang.nguyen/FashionStyle/FashionPlus/results/" ,
+                "--generate_or_save", "generate"
+            ],
+            "console": "integratedTerminal" 
+        },
+        {
+            "name": "Encode_Texture_Features",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/generation/encode_clothing_features.py",
+            "args": ["--phase","test", "--name","demo",
+                "--dataroot","/home/giang.nguyen/FashionStyle/FashionPlus/datasets/demo", 
+                "--model","pix2pixHD", "--feat_num", "8", "--label_feat",
+                "--checkpoints_dir","/home/giang.nguyen/FashionStyle/FashionPlus/checkpoints",
+                "--load_pretrain","/home/giang.nguyen/FashionStyle/FashionPlus/checkpoints/humanparsing",
+                "--label_dir","/home/giang.nguyen/FashionStyle/FashionPlus/datasets/labels/",
+                "--img_dir","/home/giang.nguyen/FashionStyle/FashionPlus/datasets/images/",
+                "--resize_or_crop","pad_and_resize", "--loadSize", "256", "--label_nc", "18", "--color_mode","Lab" 
+            ],
+            "console": "integratedTerminal" 
+        },
+        {
+            "name": "Encode_Shape_Features",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/separate_vae/encode_features.py",
+            "args": ["--phase","test", 
+                "--dataroot","/home/giang.nguyen/FashionStyle/FashionPlus/datasets/demo", 
+                "--label_dir","/home/giang.nguyen/FashionStyle/FashionPlus/datasets/labels",
+                "--label_txt_path","/home/giang.nguyen/FashionStyle/FashionPlus/separate_vae/datasets/humanparsing/clothing_labels.txt",
+                "--dataset_param_file","/home/giang.nguyen/FashionStyle/FashionPlus/separate_vae/datasets/humanparsing/garment_label_part_map.json",
+                "--name","humanparsing",
+                "--share_encoder","--share_decoder","--separate_clothing_unrelated",
+                "--nz","8",
+                "--checkpoints_dir","/home/giang.nguyen/FashionStyle/FashionPlus/checkpoints",
+                "--output_nc","18", "--use_dropout", "--lambda_kl","0.0001", "--max_mult","8",
+                "--n_downsample_global","7","--bottleneck","1d","--resize_or_crop","pad_and_resize",
+                "--loadSize","256","--batchSize","1", "--divide_by_K", "4"
+            ],
+            "console": "integratedTerminal" 
+        },
+        {
+            "name": "Preprocess",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/preprocess/prepare_input_data.py",
+            "args": ["--img_dir","/home/giang.nguyen/FashionStyle/FashionPlus/datasets/images/", 
+                "--mask_dir","/home/giang.nguyen/FashionStyle/FashionPlus/datasets/labels/", 
+                "--output_pickle_file","/home/giang.nguyen/FashionStyle/FashionPlus/generation/datasets/demo/test.p",
+                "--output_json_file","/home/giang.nguyen/FashionStyle/FashionPlus/classification/datasets/demo_dict.json"],
+            "console": "integratedTerminal"
+        }
+    ]
+}

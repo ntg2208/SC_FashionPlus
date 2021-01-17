@@ -1,9 +1,9 @@
-./datasets/*
-./checkpoints/*
-./checkpoints_bk/*
-./checkpoints_pretrained/*
-./results/*
-./results_old/*
+./datasets/****
+./checkpoints/****
+./checkpoints_bk/***
+./checkpoints_pretrained/****
+./results/*****
+./results_old/***
 ./.vscode
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -12,6 +12,12 @@ __pycache__/
 
 # C extensions
 *.so
+*.jpg
+*.png
+*.pth 
+*.html
+*.p
+*.txt
 
 # Distribution / packaging
 .Python
