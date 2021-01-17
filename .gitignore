@@ -2,6 +2,8 @@
 ./checkpoints
 ./checkpoints_bk
 ./checkpoints_pretrained
+./results
+./results_old
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,0 +1,22 @@
+{
+	"bag": {
+		"label": 16,
+		"partID": 0
+	},
+	"l-shoe": {
+		"label": 10,
+		"partID": 1
+	},
+	"r-shoe": {
+		"label": 5,
+		"partID": 2
+	},
+	"dress": {
+		"label": 7,
+		"partID": 3
+	},
+	"background": {
+		"label": 0,
+		"partID": 4
+	}
+}
