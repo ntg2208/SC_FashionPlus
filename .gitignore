@@ -1,9 +1,10 @@
-./datasets
-./checkpoints
-./checkpoints_bk
-./checkpoints_pretrained
-./results
-./results_old
+./datasets/*
+./checkpoints/*
+./checkpoints_bk/*
+./checkpoints_pretrained/*
+./results/*
+./results_old/*
+./.vscode
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
