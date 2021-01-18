@@ -1,3 +1,4 @@
+#!/bin/sh
 # -------------- PREPARE --------------------
 # Make batch of input dataset
 echo '***************************************** Preprocess *****************************************'
@@ -25,7 +26,6 @@ LAMBDA_KL=0.0001
 DIVIDE_K=4
 
 CLASS='humanparsing' # dataset name
-LABEL_DIR=${ROOT_DIR}'/datasets/labels/'
 DATAROOT=${ROOT_DIR}'/datasets/demo/'
 LABEL_TXT_PATH=${ROOT_DIR}'/separate_vae/datasets/humanparsing/clothing_labels.txt'
 PHASE='test'
@@ -91,8 +91,8 @@ DIVIDE_K=4 # hyperparameter for VAE 4
 TEXTURE_FEAT_NUM=8
 
 # Editing module options
-UPDATE_FNAME='4.jpg' # filename to update 18.jpg
-UPDATE_TYPE='shape_and_texture' # specify whether to edit shape_only, texture_only, or **shape_and_texture**
+UPDATE_FNAME='998.jpg' # filename to update 18.jpg
+UPDATE_TYPE='texture_only' # specify whether to edit shape_only, texture_only, or **shape_and_texture**
 SWAPPED_PARTID=1 # swapped_partID specifies which part to update; for class='humanparsing', partID mapping is: 0 top, 1 skirt, 2 pants, 3 dress 0
 MAXITER=10 # editing module stops at maxtier iterations 10
 UPDATE_STEP_SZ=0.25 # editing module takes step size at each update iteration 0.25

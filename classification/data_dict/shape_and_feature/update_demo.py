@@ -621,7 +621,8 @@ for param in model.parameters(): # DON't backprop gradients to classifier
 classify_criterion = nn.CrossEntropyLoss().cuda()
 smooth_criterion = nn.MSELoss().cuda()
 ################### Start updating and visualizing ###############
-if argopt.generate_or_save == 'save':
+# if argopt.generate_or_save == 'save':
+if True:
     shape_codes_dict = dict()
     texture_codes_dict = dict()
 
